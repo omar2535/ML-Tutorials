@@ -21,3 +21,21 @@ X_train = sc_X.fit_transform(X_train)
 X_test = sc_X.transform(X_test)
 sc_y = StandardScaler()
 y_train = sc_y.fit_transform(y_train)"""
+
+#Taking care of missing data
+from sklearn.preprocessing import Imputer
+imputer = Imputer(missing_values = 'NaN', strategy = 'mean', axis=0)
+imputer = imputer.fit(X[:,1:3])
+X[:,1:3] = imputer.transform(X[:, 1:3])
+
+#encoding categorical data
+#one hot encoder converts the result into binary (0,0,1) -> (0,1,0) instead of 1 and 2 
+#which is what labelencoder does. 
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+labelencoder_X = LabelEncoder()
+X[X,0] = labelencoder_X.fit_transform(X[:,0])
+onehotencoder = OneHotEncoder(categorical_features = [0])
+X = onehotencoder.fit_transform(X).toarray()
+#Encoding dependant variable
+labelencoder_y = LabelEncoder()
+y = labelencoder_y.fit_transform(y)
