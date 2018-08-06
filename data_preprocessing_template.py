@@ -15,6 +15,7 @@ from sklearn.cross_validation import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
 
 # Feature Scaling
+#Mostly used for SVM and K-clusters
 """from sklearn.preprocessing import StandardScaler
 sc_X = StandardScaler()
 X_train = sc_X.fit_transform(X_train)
@@ -27,6 +28,7 @@ from sklearn.preprocessing import Imputer
 imputer = Imputer(missing_values = 'NaN', strategy = 'mean', axis=0)
 imputer = imputer.fit(X[:,1:3])
 X[:,1:3] = imputer.transform(X[:, 1:3])
+
 
 #encoding categorical data
 #one hot encoder converts the result into binary (0,0,1) -> (0,1,0) instead of 1 and 2 
