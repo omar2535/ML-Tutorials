@@ -25,13 +25,15 @@ def parseOutText(f):
     words = ""
     if len(content) > 1:
         stemmer = SnowballStemmer("english")
-        
+        combinedString = ""
         ### remove punctuation
         text_string = content[1].translate(string.maketrans("", ""), string.punctuation)
+        text_string = text_string.split()
         for word in text_string:
+            print word
             newWord = stemmer.stem(word)
-            
-        words = stemmer.stem(text_string)
+            combinedString = combinedString +  newWord + " "
+        words = combinedString
         ### project part 2: comment out the line below
         #words = text_string
 
