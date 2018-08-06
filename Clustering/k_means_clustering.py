@@ -1,5 +1,7 @@
 #K_means clustering
 #Unsupervised learning for grouping classes
+#Unsupervised learning means from a given dataset X, the machine/algorithm finds the association between
+#each data point
 
 # Importing the libraries
 import numpy as np
@@ -9,7 +11,6 @@ import pandas as pd
 # Importing the dataset
 dataset = pd.read_csv('Mall_Customers.csv')
 X = dataset.iloc[:, 3:5].values
-y = dataset.iloc[:, 4].values
 
 #Using elbow method to find optimal number of clusters
 from sklearn.cluster import KMeans
