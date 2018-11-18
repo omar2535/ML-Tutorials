@@ -6,8 +6,8 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # Importing the dataset
-dataset = pd.read_csv('yeastdata.csv')
+dataset = pd.read_csv('yeastdata.csv', header= None)
 X = dataset.iloc[:, 0].values
-#y = dataset.iloc[:, 3].values
+y = dataset.iloc[:, 3].values
 
 print X
