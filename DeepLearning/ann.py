@@ -28,8 +28,10 @@ sc = StandardScaler()
 X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)
 
+# adding input layer and first hidden layer
 classifier = Sequential()
-classifier.add()
+classifier.add(Dense(output_dim=6, init= 'uniform', activation = 'relu', input_dim= 11))
 
 y_pred = classifier.predict(X_test)
 cm = confusion_matrix(y_test, y_pred)
+
