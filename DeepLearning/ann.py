@@ -28,10 +28,13 @@ sc = StandardScaler()
 X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)
 
-# adding input layer and first hidden layer
+# initializing ANN
 classifier = Sequential()
+# adding first layer, 11 for independant variables
+# a good output layer number if to use (#number of independant variables + 1) / 2
 classifier.add(Dense(output_dim=6, init= 'uniform', activation = 'relu', input_dim= 11))
+# adding second hidden layer
+classifier.add(Dense(output_dim=6, init= 'uniform', activation = 'relu'))
 
 y_pred = classifier.predict(X_test)
 cm = confusion_matrix(y_test, y_pred)
-
